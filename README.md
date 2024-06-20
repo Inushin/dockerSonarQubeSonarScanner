@@ -29,7 +29,7 @@ It is composed by 2 containers:
 
 ````bash
 sudo sysctl -w vm.max_map_count=262144
-```
+````
 
 4. Run `docker compose up` 😀.
 
