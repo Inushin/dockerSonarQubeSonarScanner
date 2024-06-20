@@ -1,6 +1,6 @@
 # 🐳 Docker + SonarQube + SonarScanner Bash 🐳
 
-![sonarQube](https://github.com/Inushin/kuroshitec/assets/57062736/6d5162f9-2cd6-4f24-94f6-0bccc2908b06)
+![sonarQube](https://github.com/Inushin/dockerSonarQubeSonarScanner/assets/57062736/940d165e-40c9-4ea4-9420-260851b17095)
 
 If you find this useful, remember about giving a start ⭐ to this repo or share it 🔁
 
