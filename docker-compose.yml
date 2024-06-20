@@ -1,0 +1,54 @@
+y7uservices:
+  postgresql:
+    image: postgres:alpine3.14 # Posgresql 14.1
+    container_name: postgresql
+    restart: always
+    environment:
+      POSTGRES_USER: sonarqube
+      POSTGRES_PASSWORD: XXXXXXXXXXXXX
+      PGDATA: /var/lib/postgresql/data/pgdata
+    expose:
+      - 5432
+    volumes:
+      - ./postgresql_data/postgresql:/var/lib/postgresql/data
+    networks:
+      sonarqube_community_network:
+        aliases:
+          - postgresql_net
+  sonarqube:
+    image: sonarqube:9.7.1-community
+    container_name: sonarqube
+    restart: always
+    depends_on:
+      - postgresql
+    ports:
+      - 9000:9000
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://postgresql_net/sonarqube
+      SONAR_JDBC_USERNAME: sonarqube
+      SONAR_JDBC_PASSWORD: "XXXXXXXXXXXXXXXXX"
+      SONAR_JDBC_MAXACTIVE: 60
+      SONAR_JDBC_MAXIDLE: 5
+      SONAR_JDBC_MINIDLE: 2
+      SONAR_JDBC_MAXWAIT: 5000
+    volumes:
+      - ./sonarqube_data/data:/opt/sonarqube/data
+      - ./sonarqube_logs/logs:/opt/sonarqube/logs
+      - ./sonarqube_extensions/extensions:/opt/sonarqube/extensions
+      - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
+    networks:
+      sonarqube_community_network:
+        aliases:
+          - sonarqube_net
+volumes:
+  sonarqube_data: {}
+  sonarqube_logs: {}
+  sonarqube_extensions: {}
+  postgresql_data: {}
+networks:
+  sonarqube_community_network:
+    name: sonarqube_community_network
+    driver: bridge
+    ipam:
+      driver: default
