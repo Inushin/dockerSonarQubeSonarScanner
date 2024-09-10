@@ -8,12 +8,12 @@ If you find this useful, remember about giving a start ⭐ to this repo or share
 
 ![docker_facebook_share](https://user-images.githubusercontent.com/57062736/139103227-36f3cb32-c3c1-4158-b99e-25a31e955f44.png)
 
-This is a complete stack for running PiHole for AdBlock and WireGuard as VPN, with Docker.
+This is a complete config for SonarQube with Docker and a custom script for launching SonarScanner.
 
 It is composed by 2 containers:
 
-- `pihole`, blocking ads.
-- `wireguard`, personal and free VPN for our server.
+- `sonarqube`
+- `postgres`
 
 ## Installation ⌨
 
