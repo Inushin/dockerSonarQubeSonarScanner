@@ -109,7 +109,7 @@ sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 ```
 
-4. Starts Docker's service each time you run the SO: `chkconfig docker on`
+4. Starts Docker's service each time you run the SO: `sudo systemctl enable docker`
 
 ```yaml
 sudo apt-get update
